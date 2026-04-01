@@ -111,6 +111,7 @@
         }
       }
       allActivities = allActivities.slice(0, message.numActivitiesToFetch);
+      await browser.storage.local.set({ workoutData: allActivities });
       const fileName = `garmin-workouts-${new Date()
         .toISOString()
         .substring(0, 10)}_${message.numActivitiesToFetch}`;

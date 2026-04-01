@@ -3,22 +3,21 @@
   "name": "Garmin Strength Workout Downloader",
   "description": "Download workout data from the Garmin Connect console. Strength workouts are downloaded with exercise names, reps and weights.",
   "version": "1.1.1",
-  "homepage_url": "https://github.com/labsansis/garmin-workout-downloader",
+  "homepage_url": "https://github.com/fpstevens/garmin-workout-downloader",
   "icons": {
     "16": "icons/icon-dumbbell-16x16.png",
     "32": "icons/icon-dumbbell-32x32.png",
     "48": "icons/icon-dumbbell-48x48.png",
     "128": "icons/icon-dumbbell-128x128.png"
   },
-
   "permissions": ["activeTab", "webRequest", "storage"],
-
-  "host_permissions": ["*://connect.garmin.com/*", "storage"],
-
+  "host_permissions": ["*://connect.garmin.com/*"],
+  "externally_connectable": {
+    "matches": ["https://strength-cycle-planner.replit.app/*"]
+  },
   "background": {
     "service_worker": "workout_bg.js"
   },
-
   "action": {
     "default_icon": "icons/icon-dumbbell-32x32.png",
     "theme_icons": [
@@ -28,10 +27,9 @@
         "size": 32
       }
     ],
-    "default_title": "Garmin Workout Downloader",
+    "default_title": "Garmin Strength Workout Downloader",
     "default_popup": "popup/popup.html"
   },
-
   "content_scripts": [
     {
       "matches": ["*://connect.garmin.com/*"],
