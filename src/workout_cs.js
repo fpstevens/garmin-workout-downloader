@@ -10,6 +10,10 @@
     self.browser = self.chrome;
   }
 
+  function getCsrfToken() {
+    return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+  }
+
   async function fetchActivitiesList(pageSize, start) {
     const url = `https://connect.garmin.com/gc-api/activitylist-service/activities/search/activities?limit=${pageSize}&start=${start}`;
     const response = await fetch(url, {
@@ -21,6 +25,7 @@
         "X-lang": "en-US",
         "DI-Backend": "connectapi.garmin.com",
         "X-Requested-With": "XMLHttpRequest",
+        "connect-csrf-token": getCsrfToken(),
         "Sec-Fetch-Dest": "empty",
         "Sec-Fetch-Mode": "no-cors",
         "Sec-Fetch-Site": "same-origin",
@@ -45,6 +50,7 @@
         "X-lang": "en-US",
         "DI-Backend": "connectapi.garmin.com",
         "X-Requested-With": "XMLHttpRequest",
+        "connect-csrf-token": getCsrfToken(),
         "Sec-Fetch-Dest": "empty",
         "Sec-Fetch-Mode": "no-cors",
         "Sec-Fetch-Site": "same-origin",
@@ -98,7 +104,6 @@
           });
         if (!!activities) {
           console.debug(`After extension we have ${activities.length} activities`);
-          console.debug(activities);
           allActivities.push(...activities);
           if (activities.length < PAGE_SIZE) break;
         } else {
