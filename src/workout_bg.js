@@ -5,7 +5,7 @@ if (!("browser" in self)) {
 function extractAuthHeader(e) {
   for (let header of e.requestHeaders) {
     if (header.name === "Authorization" && header.value.startsWith("Bearer")) {
-      browser.storage.session.set({ garminAuthHeader: header.value });
+      browser.storage.local.set({ garminAuthHeader: header.value });
     }
   }
 }
