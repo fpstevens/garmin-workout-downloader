@@ -9,7 +9,7 @@ window.onload = () => {
       document.getElementById("instruction-wrong-url").style.display = "block";
       document.getElementById("dl-form").style.display = "none";
     } else {
-      browser.storage.session.get(["garminAuthHeader"]).then((store) => {
+      browser.storage.local.get(["garminAuthHeader"]).then((store) => {
         if (!store.garminAuthHeader) {
           document.getElementById("instruction-other").innerHTML =
             "Sign in or refresh the page to download workout data.";
