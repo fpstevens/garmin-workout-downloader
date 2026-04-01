@@ -24,7 +24,7 @@ window.onload = () => {
 document.getElementById("dl-form").onsubmit = (e) => {
   e.preventDefault();
   console.log("Go time");
-  browser.storage.session.get(["garminAuthHeader"]).then((store) => {
+  browser.storage.local.get(["garminAuthHeader"]).then((store) => {
     console.log(parseInt(document.getElementById("numactivities").value));
     document.getElementById("loader-container").style.display = "block";
     browser.tabs
