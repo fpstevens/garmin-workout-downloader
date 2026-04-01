@@ -149,7 +149,7 @@
     btn.style.cssText = `
       position: fixed;
       bottom: 24px;
-      right: 24px;
+      right: 124px;
       z-index: 9999;
       background: #1a7fc1;
       color: white;
