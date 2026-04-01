@@ -13,5 +13,5 @@ function extractAuthHeader(e) {
 browser.webRequest.onBeforeSendHeaders.addListener(
   extractAuthHeader,
   { urls: ["*://connect.garmin.com/*"] },
-  ["requestHeaders"],
+  ["requestHeaders", "extraHeaders"],
 );
