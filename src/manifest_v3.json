@@ -13,7 +13,7 @@
 
   "permissions": ["activeTab", "webRequest", "storage"],
 
-  "host_permissions": ["*://connect.garmin.com/*"],
+  "host_permissions": ["*://connect.garmin.com/*", "storage"],
 
   "background": {
     "service_worker": "workout_bg.js"
