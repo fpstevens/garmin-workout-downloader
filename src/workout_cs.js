@@ -11,7 +11,7 @@
   }
 
   async function fetchActivitiesList(pageSize, start) {
-    const url = `https://connect.garmin.com/activitylist-service/activities/search/activities?limit=${pageSize}&start=${start}`;
+    const url = `https://connect.garmin.com/gc-api/activitylist-service/activities/search/activities?limit=${pageSize}&start=${start}`;
     const response = await fetch(url, {
       credentials: "include",
       headers: {
@@ -35,7 +35,7 @@
   }
 
   async function fetchActivityExerciseSets(activityId) {
-    const url = `https://connect.garmin.com/activity-service/activity/${activityId}/exerciseSets`;
+    const url = `https://connect.garmin.com/gc-api/activity-service/activity/${activityId}/exerciseSets`;
     const responseJson = await fetch(url, {
       credentials: "include",
       headers: {
